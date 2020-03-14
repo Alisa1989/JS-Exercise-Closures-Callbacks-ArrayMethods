@@ -67,8 +67,8 @@ function processLength(list, callback)
  * Invoking `processLastItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'barbar'.
 */
-function processLastItem(/* CODE HERE */) {
-  /* CODE HERE */
+function processLastItem(stringList, callback) {
+  return callback(stringList[stringList.length-1])
 }
 
 /**
@@ -89,9 +89,12 @@ function processLastItem(/* CODE HERE */) {
  * [2] Invoking `processSum` passing `-5`, '-1', and `(num) => num + 1000`,
  * should return 994.
 */
-function processSum(/* CODE HERE */) {
-  /* CODE HERE */
-}
+
+function processSum(num1, num2, callback) 
+{
+  //let sum = num1 + num2;
+  return callback(num1 + num2);
+};
 
 /**
  * ### Challenge `processProduct`
@@ -111,8 +114,9 @@ function processSum(/* CODE HERE */) {
  * [2] Invoking `processProduct` passing 25 and 0 and `(num) => num + 1000`,
  * should return 1000.
 */
-function processProduct(/* CODE HERE */) {
-  /* CODE HERE */
+function processProduct(num1, num2, callback) {
+  let product = num1*num2;
+  return callback(product);
 }
 
 /**
@@ -133,9 +137,23 @@ function processProduct(/* CODE HERE */) {
  * [2] Invoking `processDuplicateFree` passing `[1,1,2,2,3]` and `(arr) => arr.length`,
  * should return 3.
 */
-function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */) {
-  /* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS */
+function processDuplicateFree(list, callback) 
+{
+  let unique = [];
+  for ( let i = 0 ; i < list.length; i++)
+  {
+    for (let j = 0 ; j < unique.length; j++)
+    {
+      if (list[i] !== unique[j])
+      {
+        //unique.push(list[i]);
+      }
+    }
+  }
+  list = unique;
+  return list;
 }
+
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -156,9 +174,12 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * 
  * [2] Invoking `lowerCaseStrings` with `['a', 'b', 'c' ]` will return `[ 'a', 'b', 'c' ]`.
 */
-function lowerCaseStrings(/* code here */) {
-  /* code here */
+function lowerCaseStrings(strings) {
+  let lowercased = [];
+  strings.forEach(element => lowercased.push(element.toLowerCase()));
+  return lowercased;
 }
+
 
 /**
  * ### Challenge `isItAnApple`
@@ -175,8 +196,16 @@ function lowerCaseStrings(/* code here */) {
  * 
  * [2] Invoking `isItAnApple` with `['a', 'b', 'c' ]` will return `[ false, false, false ]`.
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+function isItAnApple(strings) {
+  strings.map((element) => {
+    if (element == "apple")
+    {
+      return element = true;
+    }
+    else
+    {
+      return element = false;}
+  })
 }
 
 /**
@@ -195,8 +224,12 @@ function isItAnApple(/* code here */) {
  * 
  * [2] Invoking `removeApple` with `['a', 'b', 'c' ]` will return `[ 'a', 'b', 'c' ]`.
 */
-function removeApple(/* code here */) {
-  /* code here */
+function removeApple(strings) {
+  var newArray = [];
+  strings.filter((arrItem) => 
+  {
+    return (arrItem !== "apple");
+  })
 }
 
 /**

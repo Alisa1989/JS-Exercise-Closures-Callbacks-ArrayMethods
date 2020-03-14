@@ -276,9 +276,11 @@ function stringSmash(strings) {
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
+
+// ??????????????????????????????/ how about newArray = [line283]
 function getFullNames(runners) {
-  var newArray;
-  newArray = runners.forEach( (arrItem) => {return `${arrItem.last_name}, ${arrItem.first_name}`});
+  var newArray = [];
+  runners.forEach((arrItem) => newArray.push(`${arrItem.last_name}, ${arrItem.first_name}`));
   return newArray;
 }
 
@@ -295,9 +297,9 @@ function getFullNames(runners) {
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
 function firstNamesAllCaps(runners) {
-  var capsArray;
-  capsArray = runners.map( (arrItem) => { return arrItem.first_name.toUpperCase});
-  return capsArray;
+  //var capsArray = [];
+  runners.map((arrItem) => { return (arrItem.first_name.toUpperCase)});
+ // return capsArray;
 }
 
 /**

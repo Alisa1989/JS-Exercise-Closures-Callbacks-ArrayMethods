@@ -140,20 +140,27 @@ function processProduct(num1, num2, callback) {
 function processDuplicateFree(list, callback) 
 {
   let unique = [];
-  for ( let i = 0 ; i < list.length; i++)
-  {
-    for (let j = 0 ; j < unique.length; j++)
+  list.forEach(element => 
     {
-      if (list[i] !== unique[j])
+      if ( !unique.includes(element))
       {
-        //unique.push(list[i]);
+        unique.push(element);
       }
-    }
-  }
-  list = unique;
-  return list;
+    })
+  return callback(unique);
 }
-
+// function processDuplicateFree(list, callback) 
+// {
+//   let unique = [];
+//   list.forEach(element => 
+//     {
+//       if ( !unique.includes(element))
+//       {
+//         unique.push(element);
+//       }
+//     })
+//   return unique;
+// }
 
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
 /////////////// HIGHER-ORDER ARRAY METHODS ///////////////
@@ -296,12 +303,17 @@ function getFullNames(runners) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(runners) {
-  //var capsArray = [];
-  runners.map((arrItem) => { return (arrItem.first_name.toUpperCase)});
- // return capsArray;
-}
+// function firstNamesAllCaps(runners) {
+//   let capsArray = [];
+//   runners.map((arrItem) => { capsArray.push(arrItem.first_name.toUpperCase())});
+//   return capsArray;
+// }
 
+//????????????????????????????/ so .map returns an array
+function firstNamesAllCaps(runners) 
+{
+  return runners.map((arrItem) => { return arrItem.first_name.toUpperCase()});
+}
 /**
  * ### Challenge `getRunnersByTShirtSize`
  * * THIS IS A STRETCH PROBLEM! ATTEMPT ONLY AFTER COMPLETING ALL NON-STRETCH CHALLENGES!
